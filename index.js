@@ -134,7 +134,7 @@
       highlight(setStyle(buildStyle(selected)));
   }
   
-  var switchit = function(e) {
+  var updateNumber = function(e) {
     var span = e && e.target || window.event.srsElement;
     if (span && span.tagName.toLowerCase() === 'span') {
       if (/on/.test(span.className)) return false;
@@ -160,7 +160,7 @@
   window.addEventListener('load', function() {
     var switcher = document.querySelector('#switcher');
     if (switcher) {
-      switcher.addEventListener('click', switchit, true);
+      switcher.addEventListener('click', updateNumber, true);
     } 
     for (var pat in selected) {
       var num = selected[pat];
