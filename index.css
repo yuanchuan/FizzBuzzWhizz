@@ -1,0 +1,112 @@
+html,
+body,
+div,
+ul,
+li,
+p,
+pre,
+span {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  font-family: 'Helvetica neue', Helvetica, Arial, serif;
+}
+#source,
+#preview {
+  float: left;
+  height: 100%;
+  width: 50%;
+}
+#result,
+.css {
+  padding: 3em 2em;
+}
+#result {
+  margin-top: -0.8em;
+}
+#result p {
+  line-height: 2;
+}
+#result p[data-num]:before {
+  content: attr(data-num);
+  margin-right: 3em;
+  display: inline-block;
+  width: 2em;
+  text-align: right;
+  color: #aaa;
+}
+#source {
+  position: relative;
+}
+.css {
+  position: fixed;
+  height: 100%;
+  width: 50%;
+  overflow-x: auto;
+  box-shadow: inset -2px 0 2px rgba(125, 125, 125, 0.5);
+  font-size: 90%;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+#switcher {
+  position: fixed;
+  right: 3em;
+  background-color: #f0f0f0;
+  padding: 1em;
+  list-style-type: none;
+}
+#switcher li:not(:last-child) {
+  margin-bottom: .5em;
+}
+#switcher li:before {
+  display: inline-block;
+  width: 3em;
+  text-align: left;
+  content: attr(data-row);
+  vertical-align: middle;
+}
+#switcher li:after {
+  content: '';
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+#switcher span {
+  color: #999;
+  cursor: pointer;
+  width: 1.2em;
+  height: 1.2em;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+#switcher span:after {
+  content: attr(data-num);
+  vertical-align: top;
+}
+#switcher span:hover {
+  background-color: #DFCFC5;
+  color: #fff;
+}
+#switcher span.on {
+  background: #f60;
+  color: #fff !important;
+}
+.highlight-tag {
+  color: #3182bd;
+}
+.highlight-parens {
+  font-weight: bold;
+}
+.highlight-number {
+  color: #31a354;
+}
+.highlight-attribute {
+  color: #e6550d;
+}
