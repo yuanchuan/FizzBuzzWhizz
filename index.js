@@ -42,7 +42,7 @@
   };
 
   var generator = function(stop) {
-    match.toString().replace(/\?/g, function() { stop++});
+    match.toString().replace(/\?/g, function() { stop++ });
     return function(pat, fn) {
       return pat.replace(match, function() {
         return [].slice.call(arguments, 1, stop).map(fn).join('');
