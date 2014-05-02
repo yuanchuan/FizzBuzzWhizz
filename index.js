@@ -1,5 +1,5 @@
 /**
- *  FizzWizzBuzz in css (write with love & care).
+ *  FizzBuzzWhizz in css (write with love & care).
  *
  *  yuanchuan23@gmail.com  
  *  2014.5.1
