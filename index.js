@@ -129,10 +129,16 @@
    *  Bind events and set default styles.
    */
 
-  var updateStyle = function() {
-    document.querySelector('pre.css').innerHTML = 
-      highlight(setStyle(buildStyle(selected)));
-  }
+  var updateStyle = function(pre) {
+    return function() {
+      if (!pre) {
+        pre = document.querySelector('pre.css')
+      };
+      if (pre) {
+        pre.innerHTML = highlight(setStyle(buildStyle(selected)))
+      };
+    }
+  }();
   
   var updateNumber = function(e) {
     var span = e && e.target || window.event.srsElement;
