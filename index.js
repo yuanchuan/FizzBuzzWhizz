@@ -1,5 +1,5 @@
 /**
- *  FizzBuzzWhizz in css (write with love & care).
+ *  FizzBuzzWhizz in css (write with love & care).                        
  *
  *  yuanchuan23@gmail.com  
  *  2014.5.1
@@ -132,35 +132,37 @@
   var updateStyle = function(pre) {
     return function() {
       if (!pre) {
-        pre = document.querySelector('pre.css')
+        pre = document.querySelector('pre.css');
       };
       if (pre) {
-        pre.innerHTML = highlight(setStyle(buildStyle(selected)))
+        pre.innerHTML = highlight(setStyle(buildStyle(selected)));
       };
     }
   }();
   
   var updateNumber = function(e) {
-    var span = e && e.target || window.event.srsElement;
-    if (span && span.tagName.toLowerCase() === 'span') {
-      if (/on/.test(span.className)) return false;
-      var parent = span.parentNode;
-
-      // switch class
-      var on = parent.querySelector('.on')
-      if (on) { 
-        on.className = '' 
-      }
-      span.className = 'on';
-
-      // update selected numbers.
-      var pat = parent.getAttribute('data-pat'); 
-      var num = span.getAttribute('data-num');
-      selected[pat] = num;
-
-      // update styles.
-      updateStyle();
+    var span = e && e.target;
+    if (!(span && span.tagName.toLowerCase() === 'span')) {
+      return false;
     }
+    if (/on/.test(span.className)) {
+      return false;
+    }
+    // switch class
+    var parent = span.parentNode;
+    var on = parent.querySelector('.on');
+    if (on) { 
+      on.className = '' 
+    }
+    span.className = 'on';
+
+    // update selected numbers.
+    var pat = parent.getAttribute('data-pat'); 
+    var num = span.getAttribute('data-num');
+    selected[pat] = num;
+
+    // update styles.
+    updateStyle();
   }
 
   window.addEventListener('load', function() {
